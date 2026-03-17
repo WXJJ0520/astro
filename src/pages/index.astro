@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { AUTHOR_NAME, GITHUB_URL, SITE_DESCRIPTION, SITE_TITLE, X_URL } from '../consts';
 ---
 
 <!doctype html>
@@ -13,44 +13,75 @@ import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-				<p class="eyebrow">AI · Code · Notes</p>
+			<section class="hero card hero-card">
+				<p class="eyebrow">AI · Code · Build · Notes</p>
 				<h1>{SITE_TITLE}</h1>
-				<p class="lead">记录 AI、编程与折腾。一个偏技术的个人博客，后续会放项目笔记、踩坑总结和一些实战文章。</p>
+				<p class="lead">
+					你好，我是 <strong>{AUTHOR_NAME}</strong>。
+					这里主要记录 AI、编程、自动化、部署，以及做项目时值得沉淀下来的思考与踩坑。
+				</p>
 				<div class="cta-row">
 					<a class="primary" href="/blog">进入博客</a>
 					<a class="secondary" href="/about">关于我</a>
+				</div>
+				<div class="meta-row">
+					<span>个人技术博客</span>
+					<span>Cloudflare Pages</span>
+					<span>Astro</span>
+				</div>
+			</section>
+
+			<section class="stats">
+				<div class="card stat">
+					<div class="stat-label">内容方向</div>
+					<div class="stat-value">AI / 编程 / 自动化</div>
+				</div>
+				<div class="card stat">
+					<div class="stat-label">当前形态</div>
+					<div class="stat-value">深色极简技术博客</div>
+				</div>
+				<div class="card stat">
+					<div class="stat-label">写作方式</div>
+					<div class="stat-value">Markdown 持续更新</div>
 				</div>
 			</section>
 
 			<section class="grid">
 				<article class="card">
-					<h2>现在有啥</h2>
+					<h2>这个站会写什么</h2>
 					<ul>
-						<li>Astro 技术博客骨架</li>
-						<li>博客列表与文章详情页</li>
-						<li>RSS 与 sitemap</li>
-						<li>Cloudflare Pages 可直接部署</li>
+						<li>AI 工具使用记录与效率流</li>
+						<li>项目搭建、部署、运维实战</li>
+						<li>编程踩坑、排错、复盘总结</li>
+						<li>值得长期保存的技术备忘录</li>
 					</ul>
 				</article>
 				<article class="card">
-					<h2>下一步准备写</h2>
-					<ul>
-						<li>AI 工具使用记录</li>
-						<li>项目搭建与部署笔记</li>
-						<li>有用但容易忘的技术备忘录</li>
-					</ul>
+					<h2>为什么要做这个博客</h2>
+					<p>
+						很多知识如果只停留在聊天记录、临时笔记或脑子里，很快就会散掉。这个站的目标很直接：把有价值的内容沉淀成能反复查、能长期看的文章。
+					</p>
 				</article>
 			</section>
 
-			<section class="card intro">
-				<h2>站点说明</h2>
-				<p>
-					这个站默认是深色极简风，面向技术内容。后面你只需要继续往
-					<code>src/content/blog/</code>
-					里加 Markdown 文章，push 到 GitHub，Cloudflare Pages 就会自动更新。
-				</p>
-				<p>作者：{AUTHOR_NAME}</p>
+			<section class="grid lower-grid">
+				<article class="card">
+					<h2>站点说明</h2>
+					<p>
+						这个站现在已经部署在 <strong>Cloudflare Pages</strong>，后面只要继续往
+						<code>src/content/blog/</code>
+						里写 Markdown 文章并 push，站点就会自动更新。
+					</p>
+					<p>当前作者：{AUTHOR_NAME}</p>
+				</article>
+				<article class="card">
+					<h2>找到我</h2>
+					<div class="links">
+						<a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
+						<a href={X_URL} target="_blank" rel="noreferrer">X / Twitter</a>
+						<a href="/rss.xml">RSS</a>
+					</div>
+				</article>
 			</section>
 		</main>
 		<Footer />
@@ -58,8 +89,11 @@ import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 </html>
 
 <style>
-	.hero {
-		padding: 4rem 0 2.5rem;
+	.hero-card {
+		padding: 3.5rem 1.6rem;
+		background:
+			radial-gradient(circle at top right, rgba(124, 92, 255, 0.18), transparent 28%),
+			rgba(255, 255, 255, 0.03);
 	}
 	.eyebrow {
 		text-transform: uppercase;
@@ -70,7 +104,7 @@ import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 	.lead {
 		font-size: 1.15rem;
-		max-width: 720px;
+		max-width: 760px;
 		color: rgb(var(--gray-light));
 	}
 	.cta-row {
@@ -93,11 +127,41 @@ import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		border: 1px solid rgba(var(--gray-light), 0.18);
 		color: rgb(var(--gray-light));
 	}
+	.meta-row {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-top: 1.25rem;
+	}
+	.meta-row span {
+		padding: 0.45rem 0.8rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(var(--gray-light), 0.08);
+		font-size: 0.92rem;
+		color: rgb(var(--gray-light));
+	}
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 1.2rem 0 2rem;
+	}
+	.stat-label {
+		font-size: 0.9rem;
+		color: rgb(var(--gray));
+		margin-bottom: 0.35rem;
+	}
+	.stat-value {
+		font-size: 1.02rem;
+		font-weight: 700;
+		color: white;
+	}
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
-		margin: 2rem 0;
+		margin: 1rem 0;
 	}
 	.card {
 		background: rgba(255, 255, 255, 0.03);
@@ -108,20 +172,38 @@ import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 	.card h2 {
 		font-size: 1.2rem;
+		margin-bottom: 0.8rem;
 	}
 	.card ul {
 		padding-left: 1.2rem;
 		margin: 0.75rem 0 0;
 	}
-	.intro {
-		margin-bottom: 2rem;
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
 	}
-	@media (max-width: 720px) {
+	.links a {
+		text-decoration: none;
+		padding: 0.7rem 1rem;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(var(--gray-light), 0.08);
+		color: rgb(var(--gray-light));
+	}
+	.links a:hover {
+		border-color: rgba(124, 92, 255, 0.5);
+		color: white;
+	}
+	@media (max-width: 820px) {
+		.stats {
+			grid-template-columns: 1fr;
+		}
 		.grid {
 			grid-template-columns: 1fr;
 		}
-		.hero {
-			padding-top: 2rem;
+		.hero-card {
+			padding: 2.4rem 1.2rem;
 		}
 	}
 </style>

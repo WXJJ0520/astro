@@ -1,25 +1,42 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import { GITHUB_URL, X_URL } from '../consts';
 ---
 
 <Layout
-	title="关于"
-	description="关于这个博客和作者"
+	title="关于我"
+	description="关于 tcjszy 和这个博客"
 	pubDate={new Date('2026-03-17')}
 >
 	<p>
-		这是一个偏技术的个人博客，主要会记录 AI、编程、自动化、部署，还有一些做项目过程里的踩坑与复盘。
+		你好，我是 <strong>tcjszy</strong>。这个博客主要用来记录我在 AI、编程、自动化、部署和项目实践中的一些思考、笔记与踩坑总结。
 	</p>
 
 	<p>
-		站点现在先用最轻的一套结构起步：Astro + Markdown + Cloudflare Pages。这样后面写文章的成本很低，部署也基本不用操心。
+		我希望这里不只是一个“发文章的地方”，而更像一份持续更新的技术归档：把做过的事、解决过的问题、验证过的方法整理下来，方便以后自己回看，也方便别人参考。
 	</p>
 
+	<h2>我会在这里写什么</h2>
+	<ul>
+		<li>AI 工具和工作流实践</li>
+		<li>网站、服务、脚本的搭建与部署</li>
+		<li>开发过程中的排错、复盘与经验记录</li>
+		<li>一些值得长期保存的技术备忘录</li>
+	</ul>
+
+	<h2>这个站为什么这么搭</h2>
 	<p>
-		目前默认作者名是 <strong>tcjszy</strong>。如果你后面想换成中文名、英文名、网名，或者补上头像、GitHub、项目页，我都可以继续帮你改。
+		这版博客选择了 <strong>Astro + Markdown + Cloudflare Pages</strong>。
+		原因很简单：足够轻、足够快、维护成本低，而且很适合长期写技术内容。
 	</p>
 
+	<h2>你也可以在这里找到我</h2>
+	<ul>
+		<li><a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a></li>
+		<li><a href={X_URL} target="_blank" rel="noreferrer">X / Twitter</a></li>
+	</ul>
+
 	<p>
-		如果你想把这个站继续升级，后面可以再加：评论系统、文章标签、项目展示页、访问统计、搜索、暗黑/亮色切换、多语言等。
+		如果你后面想让我把这里再补得更像“你的主页”——比如加上中文名字、头像、个人简介、项目经历、联系方式——我也可以继续往下完善。
 	</p>
 </Layout>
