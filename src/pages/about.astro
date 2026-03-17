@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="关于"
+	description="关于这个博客和作者"
+	pubDate={new Date('2026-03-17')}
+>
+	<p>
+		这是一个偏技术的个人博客，主要会记录 AI、编程、自动化、部署，还有一些做项目过程里的踩坑与复盘。
+	</p>
+
+	<p>
+		站点现在先用最轻的一套结构起步：Astro + Markdown + Cloudflare Pages。这样后面写文章的成本很低，部署也基本不用操心。
+	</p>
+
+	<p>
+		目前默认作者名是 <strong>tcjszy</strong>。如果你后面想换成中文名、英文名、网名，或者补上头像、GitHub、项目页，我都可以继续帮你改。
+	</p>
+
+	<p>
+		如果你想把这个站继续升级，后面可以再加：评论系统、文章标签、项目展示页、访问统计、搜索、暗黑/亮色切换、多语言等。
+	</p>
+</Layout>

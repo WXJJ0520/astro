@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`${SITE_TITLE} | 博客`} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 1040px;
+			}
+			.intro {
+				margin-bottom: 2rem;
+			}
+			ul {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 1.2rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(var(--gray-light), 0.08);
+				border-radius: 18px;
+				overflow: hidden;
+			}
+			li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
+			li:first-child {
+				grid-column: 1 / -1;
+			}
+			li img {
+				width: 100%;
+				display: block;
+				margin: 0;
+				border-radius: 0;
+			}
+			li a {
+				display: block;
+			}
+			.content {
+				padding: 1rem 1.1rem 1.2rem;
+			}
+			.title {
+				margin: 0 0 0.5rem;
+				color: rgb(var(--black));
+				line-height: 1.2;
+			}
+			.date {
+				margin: 0 0 0.75rem;
+				color: rgb(var(--gray));
+			}
+			.desc {
+				margin: 0;
+				color: rgb(var(--gray-light));
+			}
+			li a:hover .title {
+				color: var(--accent);
+			}
+			@media (max-width: 720px) {
+				ul {
+					grid-template-columns: 1fr;
+				}
+				li:first-child {
+					grid-column: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="intro">
+				<h1>博客</h1>
+				<p>这里放技术文章、项目记录、自动化脚本、部署笔记和一些值得留下来的踩坑总结。</p>
+			</section>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									{post.data.heroImage && (
+										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+									)}
+									<div class="content">
+										<h2 class="title">{post.data.title}</h2>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+										<p class="desc">{post.data.description}</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
