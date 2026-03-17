@@ -14,68 +14,50 @@ import { AUTHOR_NAME, GITHUB_URL, SITE_DESCRIPTION, SITE_TITLE, X_URL } from '..
 		<Header />
 		<main>
 			<section class="hero card hero-card">
-				<p class="eyebrow">AI · Code · Build · Notes</p>
+				<p class="eyebrow">AI · Crypto · Meme · Web3</p>
 				<h1>{SITE_TITLE}</h1>
 				<p class="lead">
-					你好，我是 <strong>{AUTHOR_NAME}</strong>。
-					这里主要记录 AI、编程、自动化、部署，以及做项目时值得沉淀下来的思考与踩坑。
+					你好，我是 <strong>{AUTHOR_NAME}</strong>。这里主要写 AI、Crypto、Meme、Web3，记录我的观察、研究、实战、折腾和复盘。
 				</p>
 				<div class="cta-row">
-					<a class="primary" href="/blog">进入博客</a>
+					<a class="primary" href="/blog">查看文章</a>
 					<a class="secondary" href="/about">关于我</a>
 				</div>
 				<div class="meta-row">
-					<span>个人技术博客</span>
-					<span>Cloudflare Pages</span>
-					<span>Astro</span>
+					<span>AI</span>
+					<span>Crypto</span>
+					<span>Meme</span>
+					<span>Web3</span>
 				</div>
 			</section>
 
 			<section class="stats">
 				<div class="card stat">
-					<div class="stat-label">内容方向</div>
-					<div class="stat-value">AI / 编程 / 自动化</div>
+					<div class="stat-label">关注方向</div>
+					<div class="stat-value">AI / Crypto / Meme / Web3</div>
 				</div>
 				<div class="card stat">
-					<div class="stat-label">当前形态</div>
-					<div class="stat-value">深色极简技术博客</div>
+					<div class="stat-label">内容类型</div>
+					<div class="stat-value">研究、实战、复盘、笔记</div>
 				</div>
 				<div class="card stat">
-					<div class="stat-label">写作方式</div>
-					<div class="stat-value">Markdown 持续更新</div>
+					<div class="stat-label">更新方式</div>
+					<div class="stat-value">持续写作，持续迭代</div>
 				</div>
 			</section>
 
 			<section class="grid">
 				<article class="card">
-					<h2>这个站会写什么</h2>
+					<h2>写作方向</h2>
 					<ul>
-						<li>AI 工具使用记录与效率流</li>
-						<li>项目搭建、部署、运维实战</li>
-						<li>编程踩坑、排错、复盘总结</li>
-						<li>值得长期保存的技术备忘录</li>
+						<li>AI 工具、工作流与自动化</li>
+						<li>Crypto / Web3 研究与实战观察</li>
+						<li>Meme 市场、热点、策略与复盘</li>
+						<li>项目搭建、部署、脚本和效率流</li>
 					</ul>
 				</article>
 				<article class="card">
-					<h2>为什么要做这个博客</h2>
-					<p>
-						很多知识如果只停留在聊天记录、临时笔记或脑子里，很快就会散掉。这个站的目标很直接：把有价值的内容沉淀成能反复查、能长期看的文章。
-					</p>
-				</article>
-			</section>
-
-			<section class="grid lower-grid">
-				<article class="card">
-					<h2>站点说明</h2>
-					<p>
-						这个站现在已经部署在 <strong>Cloudflare Pages</strong>，后面只要继续往
-						<code>src/content/blog/</code>
-						里写 Markdown 文章并 push，站点就会自动更新。
-					</p>
-					<p>当前作者：{AUTHOR_NAME}</p>
-				</article>
-				<article class="card">
-					<h2>找到我</h2>
+					<h2>链接</h2>
 					<div class="links">
 						<a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
 						<a href={X_URL} target="_blank" rel="noreferrer">X / Twitter</a>
